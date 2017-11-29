@@ -1,0 +1,52 @@
+// Variables
+// --------------------------------------------------
+
+
+// Colors
+// -------------------------
+
+// Grayscale
+$white:                     #FFFFFF;
+$lightGray:                 #BFBFBF;
+$gray:                      #808080;
+$darkGray:                  #363636;
+$black:                     #000000;
+
+// Primary Color
+$primaryColor:              #D32846; // Magneta
+$primaryColorLighten:       lighten($primaryColor, 15%);
+$primaryColorDarken:        darken($primaryColor, 5%);
+$primaryColorTransparent:   rgba($primaryColor, .75);
+
+// Secondary Color
+$secondaryColor:            $darkGray; // Mudbug Blue 
+$secondaryColorRGBA:        rgba($secondaryColor, 1);
+$secondaryColorTransparent: rgba($secondaryColor, .75);
+
+
+// Typography
+// -------------------------
+$sansFontFamily:            'Muli', sans-serif; // lite-300, reg-400 
+$altFontFamily:             'Rosario', sans-serif;; //reg-400, bold-700
+
+$baseFontSize:              14px;
+$baseLineHeight:            20px;
+$baseSansFontWeight:        400;
+$baseSerifFontWeight:       400;
+
+
+// Scaffolding
+// -------------------------
+$radius:                    10px;
+$primaryTexture:            url(../img/layout/dark_mosaic.png) repeat;
+$altTexture:                url(../img/layout/pw_pattern.png) repeat;
+
+
+//Gridset Variables
+// -------------------------
+$smScreen: 699px; //the min-width of your small grid (Example: 699px )
+$mdScreen: 999px; //the max-width of your medium grid (Example: 700px )
+$lgScreen: 0px; //the max-width of your large grid
+$lgGutter: 2%;
+$mdGutter: 2%;
+$smGutter: 2%;

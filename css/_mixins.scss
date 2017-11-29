@@ -1,0 +1,287 @@
+// Mixins
+// --------------------------------------------------
+
+//Borders
+
+@mixin double-border-left ($border-color) {
+	border-left: 1px solid $border-color;
+}
+
+@mixin double-border-right ($border-color) {
+	border-right: 1px solid $border-color;
+}
+
+// Transition
+// -------------------------
+// @include transition; Default Duration
+// @include transition (all, 0s, ease); Override Transition
+// @include transition (height, .35s, ease); Height Expand (NAV)
+@mixin transition ($Property: all, $Duration: 0.4s, $TimingFunction: ease) {
+	transition: $Property $Duration $TimingFunction;
+	-moz-transition: $Property $Duration $TimingFunction; /* Firefox 4 */
+	-webkit-transition: $Property $Duration $TimingFunction; /* Safari and Chrome */
+	-o-transition: $Property $Duration $TimingFunction; /* Opera */
+}
+
+// Text Shadow
+// -------------------------
+@mixin text-shadow ($color) {
+	text-shadow: 0 1px 2px $color;
+}
+
+// Flexbox
+// -------------------------
+@mixin simple-flexbox() {
+  display:                    -webkit-box;  //2012
+  display:                    -moz-box;     //2012
+  display:                    -ms-flexbox;  //2011
+  display:                    -webkit-flex; //2009
+  display:                    -moz-flex;	  //2009
+  display:                    flex;         //2012
+}
+
+@mixin simple-flex-vertical() {
+  -webkit-flex-direction:     column;       //2012
+  -moz-flex-direction:        column;       //2012
+  -ms-flex-direction:         column;       //2011
+  flex-direction:             column;       //2009
+  -webkit-box-orient:         vertical;     //2012
+  -moz-box-orient:         	  vertical;     //2012
+}
+
+@mixin simple-flex-horizontal() {
+  -webkit-flex-direction:     row;          //2012
+  -moz-flex-direction:        row;          //2012
+  -ms-flex-direction:         row;          //2011
+  flex-direction:             row;          //2009
+  -webkit-box-orient:         horizontal;   //2012
+  -moz-box-orient:            horizontal;   //2012
+}
+
+@mixin simple-order($val) {
+  -webkit-box-ordinal-group:  $val;
+  -moz-box-ordinal-group:     $val;
+  -ms-flex-order:             $val;
+  -webkit-order:              $val;
+  -moz-order:                 $val;
+  order:                      $val;
+  position: relative;
+}
+
+
+
+// Elise's Box Sizing Includes
+// --------------------------------------------------
+// Default Model:               @include box-sizing(border-box);
+@mixin box-sizing($box-model) {
+	-webkit-box-sizing: $box-model;
+	-moz-box-sizing: $box-model;
+	box-sizing: $box-model;
+}
+
+
+
+// Elise's Fluidize Mixin
+// --------------------------------------------------
+// Formula to get persentages based on a pixel width at a fixed size:
+//Box's Width at say 1000px Divided By Parent (1000px):  width: fluidize(250px, 1000px);
+// Fluidize Mixin     
+  @function fluidize($target, $context) {
+    @return ($target / $context) * 100%;
+  }
+
+
+//  Elise's Typekit Mixins - Not Responsive Type
+// --------------------------------------------------
+// IE8 Doen't Like Typekit so we need to declare Dax Font-Family, Font-Weight, and Font-Size this way
+
+// Dax Includes
+  // Dax 400:                     @include dax400;
+  // Dax 400 Italic:              @include dax400Italic;
+  // Dax 700:                     @include dax700;
+  // Dax 700 Italic:              @include dax700Italic;
+
+// Dax Font Stacks
+  $dax400:                        "ff-dax-web-pro-n4","ff-dax-web-pro",sans-serif;
+  $dax400Italic:                  "ff-dax-web-pro-i4","ff-dax-web-pro",sans-serif;
+  $dax700:                        "ff-dax-web-pro-n7","ff-dax-web-pro",sans-serif;
+  $dax700Italic:                  "ff-dax-web-pro-i7","ff-dax-web-pro",sans-serif;
+
+// Dax Mixin 
+  @mixin dax400($font-family: $dax400, $font-style: normal, $font-weight: 400) {
+    font-family:                  $font-family;
+    font-style:                   $font-style;
+    font-weight:                  $font-weight;
+  }
+  @mixin dax400Italic($font-family: $dax400Italic, $font-style: italic, $font-weight: 400) {
+    font-family:                  $font-family;
+    font-style:                   $font-style;
+    font-weight:                  $font-weight;
+  }
+  @mixin dax700($font-family: $dax400, $font-style: normal, $font-weight: 700) {
+    font-family:                  $font-family;
+    font-style:                   $font-style;
+    font-weight:                  $font-weight;
+  }
+  @mixin dax700Italic($font-family: $dax400Italic, $font-style: italic, $font-weight: 700) {
+    font-family:                  $font-family;
+    font-style:                   $font-style;
+    font-weight:                  $font-weight;
+  }
+
+
+
+// Elise's Responsive Type Mixin
+// --------------------------------------------------
+
+//Includes
+  // @include responsiveType(26px, 600, 30px);
+
+// Variables for Media Queries. Chane to what makes sense for your content.
+  $large: 1200px;
+  $medium: 950px;
+  $small: 700px;
+
+// Variables for Responsive Type.
+  $typeLarge: 1;
+  $typeMedium: .8;
+  $typeSmall: .7;
+
+// Use To Create Proportional Responsive Font Sizes
+  @mixin responsiveType($FontSize, $FontWeight, $LineHeight) {
+      font-size: $FontSize * $typeLarge;
+      font-weight: $FontWeight;
+      line-height: $LineHeight * $typeLarge;
+
+    @media (max-width: $medium) {
+      font-size: $FontSize * $typeMedium;
+      font-weight: $FontWeight;
+      line-height: $LineHeight * $typeMedium;
+    }
+    @media (max-width: $small) {
+      font-size: $FontSize * $typeSmall;
+      font-weight: $FontWeight;
+      line-height: $LineHeight * $typeSmall;
+    }
+  }
+
+//  Mobile First Version
+//  
+//  // Variables for Responsive Type.
+//    $typeLarge: 1.3;
+//    $typeMedium: 1.2;
+//    $typeSmall: 1;
+//
+//  // Use To Create Proportional Responsive Font Sizes
+//    @mixin responsiveType($FontSize, $FontWeight, $LineHeight) {
+//        font-size: $FontSize * $typeSmall;
+//        font-weight: $FontWeight;
+//        line-height: $LineHeight * $typeSmall;
+//
+//      @media (max-width: $medium) {
+//        font-size: $FontSize * $typeMedium;
+//        font-weight: $FontWeight;
+//        line-height: $LineHeight * $typeMedium;
+//      }
+//      @media (max-width: $large) {
+//        font-size: $FontSize * $typeLarge;
+//        font-weight: $FontWeight;
+//        line-height: $LineHeight * $typeLarge;
+//      }
+//    }
+
+
+
+// Elise's Quick and Easy Columns - WILL SHOW UP IN CSS
+// --------------------------------------------------
+// This is really helpful for when you need to make a 
+// quick grid but don't feel like dealing with gridset.
+
+// It's by default width 100% and at 700px goes to columns
+
+.row {
+    width: 100%; 
+    &:after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+    .twoCol, .threeCol, .twoThirdCol, .fourCol, .fiveCol {
+        width: 100%;
+    }
+    @media (min-width: 700px) {
+      .twoCol,
+      .threeCol,
+      .twoThirdCol,
+      .fourCol,
+      .fiveCol {
+        margin-left: 2%;
+        float: left;
+        display: inline-block;
+      }
+      .twoCol:first-of-type,
+      .threeCol:first-of-type,
+      .twoThirdCol:first-of-type,
+      .fourCol:first-of-type,
+      .fiveCol:first-of-type { margin-left: 0px; }
+      
+      .oneCol { width: 100%; }
+      .twoCol { width: 49%; }
+      .threeCol { width: 32%; }
+      .twoThirdCol { width: 66%; }
+      .fourCol { width: 23.5%; }
+      .fiveCol { width: 18.4%; }
+    }
+
+}
+
+
+
+// Elise's Quick and Easy "Display: Table" Columns - WILL SHOW UP IN CSS
+// --------------------------------------------------
+
+
+// This is handy for when you need to make a grid that
+// is based on .row, but needs to have the text or 
+// content verticaly aligned in the center of a div
+
+.rowTable {
+    display: table;
+}
+.displayTable {
+    display: table-cell;
+    vertical-align: middle;
+    @media (max-width: 700px) { width: 100%; display: block; }
+    &.half { width: 50%; }
+    &.oneFourth { width: 25%; }
+    &.twoThird { width: 66%; }
+    &.oneThird { width: 33%; }
+}
+
+
+
+// Elise's Container / Wrapper Placeholder
+// --------------------------------------------------
+// This placeholder's good for when you have a lot of
+// wrappers that share the same styles.
+
+// Include
+  // @extend %wrapper;
+  // @extend %container;
+  
+// Placehodler Container - Can be set to different widths.
+  %wrapper {
+    width: 100%;
+    display: block;
+    position: relative;
+    &:after {
+      clear: both;
+      content: '';
+      display: table;
+    }
+  }
+  %container {
+    width: 90%;
+    max-width:  $lgScreen;
+    margin: 0 auto; 
+  }

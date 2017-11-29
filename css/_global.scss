@@ -1,0 +1,195 @@
+// Global Styles
+// --------------------------------------------------
+
+// Headings
+a { h1, h2, h3, h4 { text-decoration: none; } }
+h1 { 
+	border-bottom: 3px solid $lightGray;
+	color: $secondaryColor;
+	font-family: $sansFontFamily;
+	font-size: 48px;
+	font-weight: 300;
+	margin-bottom: 35px;
+	margin-top: 10px;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	text-align: center;
+	text-transform: uppercase;
+	@media only screen and (max-width: $mdScreen) {
+		font-size: 40px;
+	}
+}
+h2 {
+	color: $primaryColor;
+	font-family: $sansFontFamily;
+	font-size: 28px;
+	font-weight: 400;
+	line-height: 34px;
+	margin-top: 0;
+}
+h3 {
+	font-family: $altFontFamily;
+	font-weight: 400;
+	text-transform: uppercase;
+}
+h4 { 
+	color: $primaryColor;
+	font-family: $sansFontFamily;
+	font-size: 21px;
+	font-weight: 400;
+	text-align: center;
+	@media only screen and (max-width: $smScreen) {
+		font-size: 16px;
+	}
+}
+h5 { }
+h6 { }
+
+// Typography
+p {
+	font-family: $altFontFamily;
+	font-size: 17px;
+	line-height: 28px;
+}
+strong { }
+em { color: $primaryColor; }
+
+// Links
+a { 
+	@include transition ($Property: all, $Duration: 0.3s, $TimingFunction: ease);
+	color: $primaryColor;
+	&:hover { color: $darkGray;}
+	&:active { }
+}
+
+// Unordered Lists
+
+ul {
+  li { }
+}
+
+// Ordered Lists
+
+ol {
+  li { }
+}
+
+// Utility
+.floatRight { float: right;}
+.floatLeft { float: left;}
+.clear { clear: both;}
+.clear:after { clear: both; display: table; content:''; }
+
+// Images 
+img {
+	width: 100%;
+}
+#content img {
+	border-radius: $radius;
+}
+
+// Social Media
+.social-media {
+	border-top: 1px solid $gray;
+	margin-bottom: 30px;
+	margin-top: 30px;
+	padding-top: 20px;
+	a {
+		font-size: 40px;
+		margin-right: 20px;
+		text-decoration: none;
+	}
+}
+
+// Side Column
+ 
+.side-column {
+	background: $altTexture;
+	border-bottom: 5px solid $primaryColor;
+	border-top: 5px solid $primaryColor;
+	margin-bottom: 30px;
+	padding-bottom: 25px;
+	padding-top: 25px;
+	h3 { 
+		color: $secondaryColor;
+		font-size: 22px;
+		margin-bottom: 0; 
+	}
+	.listing {
+		border-bottom: 1px dashed $gray;
+		margin-bottom: 20px;
+		padding-bottom: 20px;
+		&:last-child {
+			border-bottom: none;
+			margin-bottom: 0;
+			padding-bottom: 0;
+		}
+	}
+	em { 
+		color: $secondaryColor;
+		font-size: 14px; 
+		font-style: normal;
+	}	
+	p { 
+		font-family: $sansFontFamily;
+		line-height: 17px; 
+		margin: 0;
+	}	
+}
+.profile .side-column h3 { text-align: center; }
+#content #about .listing {
+	img { border: 3px solid lighten($primaryColorLighten, 5%); }
+	h3 { color: $primaryColor; margin-top: 0; }
+}
+
+// Portfolio 
+.portfolio-listing {
+	margin-bottom: 15px;
+	margin-top: 15px;
+	a {
+		position: relative;
+		text-align: center;
+		text-decoration: none;
+		h4 { margin-top: 15px; }
+		span {
+			@include transition ($Property: all, $Duration: 0.4s, $TimingFunction: ease-in);
+			background: $primaryColor;
+			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+			color: $white;
+			display: block;
+			font-family: $sansFontFamily;
+			font-size: 15px;
+			font-weight: 300;
+			opacity: 0;
+			padding: 10px;
+			position: absolute;
+			top: 32%;
+			left: 0;
+			text-transform: uppercase;
+			width: 100%;
+			z-index: 11;
+		}
+		&:hover span {
+			opacity: 1;
+		}
+		img {
+			position: relative;
+			z-index: 10;
+		}
+	}
+}
+
+// Twitter Widget 
+#twitter-widget-0 {
+	border: 1px solid lighten($primaryColorLighten,5%) !important;
+	border-radius: 5px;
+}
+#twitter-widget-0 .timeline .timeline-footer {
+	background: $primaryColor !important;
+}
+
+// Homepage
+.welcome-message,
+.home-featured-video {
+	margin-top: 40px !important;
+}

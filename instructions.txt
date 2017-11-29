@@ -1,0 +1,19 @@
+INSTRUCTIONS:
+
+-	make a proto folder
+-	copy the index copy.php, index.php and layout.php files into your new proto folder.
+-	make a new folder in proto labeled home, and put the index.php file in there. Also, please add the SITE_ROOT file in this folder.
+-	make a new folder in proto labeled include, and put the layout.php in there. Make sure to also add the "lib" folder inside include. This folder contains a PathtoRoot php file that will help link items on your site root level.
+-	rename the index copy.php to just index.php and delete the text I have put in there.
+
+So your proto should look like this:
+proto
+	home folder/index.php
+	include folder/layout.php
+	index.php
+	
+now make a styles folder and create a css styles sheet.
+
+NOTE: Please remember to link your Root Level items with <?php echo $path; ?>. This includes links, images and css.
+
+

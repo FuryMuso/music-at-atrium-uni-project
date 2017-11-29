@@ -1,0 +1,16 @@
+/* apply a natural box layout model to all elements */
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+ }
+
+@import "bourbon";			//Mixin Library
+@import "_normalize";		//HTML5BP Reset
+@import "_main";			//HTML5BP Starter Stylesheet
+@import "_variables";		//Project-specific Variables for colors and stuff
+@import "_mixins";			//Project-specific mixins and placeholders
+@import "_icomoon";	   		//Your icon fonts!
+@import "_layout";			//Major DOM elements (header, footer, etc)
+@import "_global";			//Headings, links, lists, paragraphs, etc
+@import "_buttons";			//All your buttons

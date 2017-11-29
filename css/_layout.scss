@@ -1,0 +1,221 @@
+// Layout Styles
+// --------------------------------------------------
+
+
+// Scaffolding
+// -------------------------
+
+body {
+	background: $primaryTexture;
+	-webkit-font-smoothing: antialiased;
+}
+
+.wrapper {
+	width: 90%;
+	max-width: 1400px;
+	margin: 0 auto;
+	@media (max-width: $smScreen) {
+		width: 100%;
+	}
+}
+	/* IE8 */
+	.ie8 .wrapper { width: 1000px; }
+	
+	
+
+// Header
+// -------------------------
+header {
+	position: relative;
+	#logo {
+		background: rgba(0,0,0,0.65);
+		padding: 1%;
+		position: absolute;
+		left: 10%;
+		top: 9%;
+		width: 22%;
+	}
+}
+
+
+// Navigation
+// -------------------------
+
+nav .wrapper {
+	background: $primaryColor;
+	position: relative;
+	ul.nav {
+		margin: 0;
+		padding-left: 0;
+		overflow: hidden;
+		li {
+			border-right: 1px solid $primaryColorLighten;
+			float: left;
+		  	position: relative;
+			width: 20%;
+			a {
+				@include transition ($Property: all, $Duration: 0.4s, $TimingFunction: ease);
+				color: $white;
+				display: block;
+				font-family: $sansFontFamily;
+				font-size: 20px;
+				font-weight: 300;
+				text-decoration: none;
+				text-align: center;
+				cursor: pointer;
+				&:hover {
+					background: $darkGray;
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: $mdScreen) {
+	nav ul.nav {
+		overflow: hidden;
+		li a { padding: 12px 20px; }
+	}
+	.wrapper .desktop-wrap { 
+		overflow: hidden;
+		padding-left: 12%; 
+		padding-right: 12%; 
+		li {
+			float: left;
+		  	position: relative;
+			width: 20%;
+			&:first-child { border-left: 1px solid $primaryColorLighten; }
+		}
+	}
+}
+
+@media only screen and (max-width: $mdScreen) {
+  	nav ul.nav {
+		border-bottom: 8px solid $primaryColor;
+		li {
+		    float: none;
+			width: 100%;
+			&:last-child {
+				border-bottom: none;
+			}
+			a { 
+				height: 0;
+				opacity: 0; 
+			}
+			&.active {
+				ul.nav li a {
+					height: 60px;
+					line-height: 60px;
+					border-bottom: 1px solid #222b2f;
+				}
+			}
+		}
+  	}
+  	nav.active ul.nav {
+		border-bottom: none;
+		li { border-bottom: 1px solid $primaryColorLighten; }
+		
+  	}
+}
+
+/* Style for header with active class name */
+
+nav.active {
+	ul.nav li {
+		width: 50%;
+		a {
+			height: 60px;
+			opacity: 1;
+			line-height: 60px;
+			cursor: pointer;
+		}
+	}
+	button.toggle-nav {
+		background-color: $primaryColorLighten;
+	}
+}
+
+/* Style for the plus button */
+
+button.toggle-nav {
+	@include transition ($Property: all, $Duration: 0.4s, $TimingFunction: ease);
+	background-color: $primaryColor;
+	border: none;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	color: $white;
+	cursor: pointer;
+	height: 35px;
+	line-height: 30px;
+	outline: none;
+	padding: 0 15px;
+	position: absolute;
+	top: -34px;
+	left: 75%;
+	text-align: center;
+	vertical-align: middle;
+	span { display: block; }
+	@media only screen and (min-width: $mdScreen) {
+		display: none;
+	}
+}
+
+
+// Content
+// -------------------------
+#content .wrapper { 
+	background: #e2e2e2; 
+	padding-bottom: 35px;
+	padding-top: 25px;
+	#footer-background {
+		position: relative;
+		.matm-logo {
+			position: absolute;
+			bottom: -35px;
+			left: 0;
+			width: 12%;
+		}
+		.footer-background-image {
+			border-radius: 0;
+			margin-bottom: -35px;
+		}
+	}
+}
+
+// Footer
+// -------------------------
+footer {
+	color: $white;
+	font-family: $altFontFamily;
+	font-size: 14px;
+	font-weight: 400;
+	.wrapper { 
+		background: $primaryColor; 
+		padding-bottom: 20px;
+		padding-top: 20px;
+		#social-media-links {
+			a {
+				display: inline-block;
+				font-size: 30px;
+				padding-bottom: 15px;
+				margin-left: 15px;
+				text-decoration: none;
+				&:first-child { margin-left: 0; }
+			}
+			p { 
+				margin: 0; 
+				text-align: right;
+				@media only screen and (max-width: $smScreen) {
+					border-top: 1px solid $primaryColorLighten;
+					margin-top: 20px;
+					padding-top: 20px;
+					text-align: center;
+				}
+			}
+		}
+	}
+	a { 
+		color: lighten($primaryColor, 30%); 
+		&:hover { color: $white; }
+	}
+}
